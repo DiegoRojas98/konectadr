@@ -1,0 +1,48 @@
+konecta base de datos
+
+
+DROP SCHEMA IF EXISTS konectadr;
+CREATE SCHEMA konectadr;
+USE konectadr;
+
+CREATE TABLE productos(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre Varchar(155) NOT NULL,
+    referencia Varchar(100) NOT NULL,
+    precio BIGINT NOT NULL,
+    peso FLOAT NOT NULL,
+    categoria INT NOT NULL,
+    stock INT NOT NULL,
+    fecha_creacion date NOT NULL,
+    estado INT DEFAULT 1
+);
+
+CREATE TABLE ventas(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    producto_id INT NOT NULL,
+    cantidad INT NOT NULL
+);
+
+
+CREATE TABLE categoria(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    descripcion VARCHAR(65) NOT NULL
+);
+
+
+INSERT INTO productos(nombre,referencia,precio,peso,categoria,stock,fecha_creacion)
+    VALUES
+    ('Teclado','LG313908','30000','600','1','4','2022-11-11'),
+    ('Monito','SMG283819','180000','2700','1','3','2022-11-11'),
+    ('Nucleo','R5-5000x','2000000','50','1','2','2022-11-11'),
+    ('Tv','SMG87237T','900000','4600','2','4','2022-11-11'),
+    ('Modem','ET89366-09','120000','500','2','3','2022-11-11'),
+    ('Eq. Sonido','SN79353','800000','6000','2','4','2022-11-11'),
+    ('Silla','TKS100','450000','5500','3','4','2022-11-11'),
+    ('Escritorio','TKS200','250000','8700','3','3','2022-11-11');
+
+INSERT INTO categoria(descripcion) VALUES('Tecnologia'),('Hogar'),('Oficina');
+
+
+INSERT INTO ventas(producto_id,cantidad) VALUES('1','2');
+
