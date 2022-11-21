@@ -1,4 +1,4 @@
-konecta base de datos
+#konecta base de datos
 
 
 DROP SCHEMA IF EXISTS konectadr;
