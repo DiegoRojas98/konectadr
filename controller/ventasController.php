@@ -40,16 +40,19 @@ class ventasController{
             $error['type'] = "info";
             $error['message'] = "La cantidad que intenta vender es mayor al stock del producto por favor verifique la informacion realizando el proceso nuevamente.";
             $this->invoke($error);
+
+        }else{
+            if($ventas->save($_POST['id'],$_POST['cantidad'])){
+                header("Location: index.php");
+            }else{
+                $error = [];
+                $error['type'] = "info";
+                $error['message'] = "Lo setimos no se registro con exito la venta Por favor realiza el proceso nuevamente";
+                $this->invoke($error);
+            }
+            
         }
 
-        if($ventas->save($_POST['id'],$_POST['cantidad'])){
-            header("Location: index.php");
-        }else{
-            $error = [];
-            $error['type'] = "info";
-            $error['message'] = "Lo setimos no se registro con exito la venta Por favor realiza el proceso nuevamente";
-            $this->invoke($error);
-        }
     }
 
 }

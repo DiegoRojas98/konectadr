@@ -72,7 +72,21 @@
 
     <?php require_once 'views/foot.php';?>
 
-    <script>    
+    <script>
+        function alerta() {  
+            if($('#cantidad').val() > $('#stock').val()){
+                alert(`La cantidad no puede ser mayor al Stock del producto ${$('#stock').val()}`);
+                $('#cantidad').val($('#stock').val());
+            }
+        }
+
+        $('#cantidad').change(function () { 
+            alerta();
+        })
+
+        $('#cantidad').keyup(function () { 
+            alerta();
+        })
         
         
     </script>

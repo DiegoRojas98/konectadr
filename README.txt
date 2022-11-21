@@ -1,4 +1,4 @@
-konectadr
+konectadr (sistema de ventas con php y mysql)
 
 instrucciones de ejecucion
 
